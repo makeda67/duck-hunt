@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function Duck(canvas, randomY, side) {
   this.canvas = canvas;

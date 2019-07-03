@@ -45,6 +45,10 @@ function main() {
         
        game.startGame();
         
+       
+
+        
+
     };
     
     

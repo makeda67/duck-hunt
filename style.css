@@ -20,7 +20,7 @@ html {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 147%;
-    cursor: url(kisspng-reticle-telescopic-sight-milliradian-long-range-sh-reticle-5b2588791d5e91.6683433115291864251203\ \(1\).png), pointer;
+    
    
   }
 
@@ -44,6 +44,7 @@ html {
     border: 1px solid black;
     background-image: url('20451.png');
     background-position: bottom left;
+    cursor: url('mirilla.cur') 60 60, auto;
   }
   
   
