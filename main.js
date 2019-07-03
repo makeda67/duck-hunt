@@ -33,7 +33,7 @@ function main() {
     function createGameScreen () {
         var gameScreen = buildDom(`
         <section>
-            <canvas width="700" height="400"></canvas>
+            <canvas width="900" height="400"></canvas>
         </section>
         `);
 
@@ -45,7 +45,7 @@ function main() {
         
        game.startGame();
         
-       
+       //addEventListener('mousemove', canvas);
 
         
 
