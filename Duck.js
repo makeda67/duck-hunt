@@ -3,17 +3,20 @@
 function Duck(canvas, randomY, side) {
   this.canvas = canvas;
   this.ctx = this.canvas.getContext("2d");
-  this.y = randomY;
+  this.y = randomY - 200;
   this.velocity = 3;
   this.color = "red";
-  this.width = 40;
-  this.height = 40;
+  this.width = 60;
+  this.height = 60;
+  this.img = new Image();
   if (side === "left") {
     this.direction = 1;
     this.x = 0;
+    this.img.src = "images/makeda-duck.gif";
   } else {
     this.direction = -1;
     this.x = this.canvas.width;
+    this.img.src = "images/makeda-duck2.gif";
   }
 }
 
@@ -22,6 +25,9 @@ Duck.prototype.move = function() {
 };
 
 Duck.prototype.draw = function() {
-  this.ctx.fillStyle = this.color;
-  this.ctx.fillRect(this.x, this.y, this.width, this.height);
+  // this.ctx.fillStyle = this.color;
+  // this.ctx.fillRect(this.x, this.y, this.width, this.height);
+
+  var ctx = this.ctx;
+  ctx.drawImage(this.img,this.x, this.y, this.width, this.height);
 };

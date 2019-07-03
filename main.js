@@ -1,5 +1,8 @@
 'use strict';
 function main() {
+
+   
+
     var mainElement = document.querySelector('#site-main');
 
     function buildDom(html) {
@@ -8,6 +11,8 @@ function main() {
     };
     
     function createSplashScreen () {
+        // var audio = new Audio('sound/David Civera - Que La Detengan.mp3');
+        // audio.play();
         var splashScreen = buildDom(`
             <section>
                 <h1>Shoot the ShitHead</h1>
@@ -16,6 +21,8 @@ function main() {
         `);
         var startButton = splashScreen.querySelector('button');
         startButton.addEventListener('click', createGameScreen);
+        
+        
     };
 /*
     function createInstructionsScreen () {
@@ -31,8 +38,15 @@ function main() {
     }
 */
     function createGameScreen () {
+        // this.audio.pause();
+        // this.audio.currentTime = 0;
+        
+        // var audio = new Audio('sound/David Civera - Que La Detengan.mp3');
+        // audio.play()
+        
         var gameScreen = buildDom(`
         <section>
+        <p>Score: <span></span></p>
             <canvas width="900" height="400"></canvas>
         </section>
         `);
@@ -46,7 +60,6 @@ function main() {
        game.startGame();
         
        function checkCoordinates(event) {
-           console.log(event)
         var x = event.offsetX;
         var y = event.offsetY;
         game.checkShot(x,y);

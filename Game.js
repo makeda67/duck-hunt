@@ -15,15 +15,15 @@ Game.prototype.startGame = function() {
   this.player = new Player(this.canvas)
   var loop = () => {
       this.contDucks ++;
-    if (this.contDucks > 120) {
+    if (this.contDucks > 60) {
       var randomY = Math.random() * this.canvas.height;
       this.contDucks = 0;
-      // if (Math.random() >= 0.5) {
-      //   var newDuck = new Duck(this.canvas, randomY, "left");
-      // } else {
-      //   var newDuck = new Duck(this.canvas, randomY, "right");
-      // }
-      var newDuck = new Duck(this.canvas, randomY, "left");
+      if (Math.random() >= 0.5) {
+        var newDuck = new Duck(this.canvas, randomY, "left");
+      } else {
+        var newDuck = new Duck(this.canvas, randomY, "right");
+      }
+      
       this.enemies.push(newDuck);
       
       this.contDucks = 0;
@@ -64,31 +64,35 @@ Game.prototype.draw = function() {
     })
 }
 
-// AQUIIIIIII
 Game.prototype.checkShot = function(mouseX, mouseY) {
-  
+  var isCollision = false;
   this.enemies.forEach((enemy, index) => {
     
-    var leftCheck = mouseX > enemy.x;
-    var rightCheck = mouseX < enemy.x + enemy.width
-    var topCheck = mouseY > enemy.y;
+    var leftCheck = mouseX >= enemy.x;
+    var rightCheck = mouseX <= enemy.x + enemy.width
+    var topCheck = mouseY >= enemy.y;
     var bottomCheck = mouseY <= enemy.y + enemy.height;
    
-  
-    if(leftCheck && rightCheck && topCheck && bottomCheck) {
- 
-      this.enemies.splice(index, 1);
-      this.player.score += 100;   
-    } else {
     
-        this.player.lives--;
-      if(this.player.lives === 0) {
-        this.isGameOver = true; 
-      }
+    if(leftCheck && rightCheck && topCheck && bottomCheck) {
+      //setTimeout(function(){document.body.style.color="white"}, 300);
+      this.enemies.splice(index, 1);
+      this.player.score += 100;
+      var score = document.querySelector('span'); 
+      
+      score.innerText = this.player.score;  
+      isCollision = true;
     }
     
-   
   })
+  if(!isCollision){
+    this.player.lives--;
+    this.player.score -= 300;
+    console.log(`Fallado, vidas restantes ${this.player.lives}`)
+    if(this.player.lives === 0) {
+      this.isGameOver = true; 
+    }
+  }
   
 }
 
