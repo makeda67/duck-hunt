@@ -7,20 +7,23 @@ function Game(canvas) {
   this.ctx = this.canvas.getContext("2d");
   this.onGameOver = null;
   this.contDucks = 0;
-  
+  this.coordinatesMouse = null;
 }
 
 Game.prototype.startGame = function() {
+
+  this.player = new Player(this.canvas)
   var loop = () => {
       this.contDucks ++;
     if (this.contDucks > 120) {
       var randomY = Math.random() * this.canvas.height;
       this.contDucks = 0;
-      if (Math.random() >= 0.5) {
-        var newDuck = new Duck(this.canvas, randomY, "left");
-      } else {
-        var newDuck = new Duck(this.canvas, randomY, "right");
-      }
+      // if (Math.random() >= 0.5) {
+      //   var newDuck = new Duck(this.canvas, randomY, "left");
+      // } else {
+      //   var newDuck = new Duck(this.canvas, randomY, "right");
+      // }
+      var newDuck = new Duck(this.canvas, randomY, "left");
       this.enemies.push(newDuck);
       
       this.contDucks = 0;
@@ -60,26 +63,36 @@ Game.prototype.draw = function() {
         Duck.draw();
     })
 }
-/*
-// AQUIIIIIII
-Game.prototype.checkShot = function() {
-  this.enemies.forEach((enemy, index) => {
-    var clickEmpty = 0;
-    var clickEnemy = 1; 
 
-      if(MouseEvent, clickEnemy) {
-          this.enemies.splice(index, 1);
-          
-        } else if (MouseEvent, clickEmpty) {
-        this.player.lives --;
-          if(this.player.lives === 0) {
-          this.isGameOver = true; 
-          }
-        }
+// AQUIIIIIII
+Game.prototype.checkShot = function(mouseX, mouseY) {
+  
+  this.enemies.forEach((enemy, index) => {
+    
+    var leftCheck = mouseX > enemy.x;
+    var rightCheck = mouseX < enemy.x + enemy.width
+    var topCheck = mouseY > enemy.y;
+    var bottomCheck = mouseY <= enemy.y + enemy.height;
+   
+  
+    if(leftCheck && rightCheck && topCheck && bottomCheck) {
+ 
+      this.enemies.splice(index, 1);
+      this.player.score += 100;   
+    } else {
+    
+        this.player.lives--;
+      if(this.player.lives === 0) {
+        this.isGameOver = true; 
+      }
+    }
+    
+   
   })
+  
 }
-*/
-/*
+
+
 Game.prototype.gameOverCallback = function(callback) {
     this.onGameOver = callback;
-}*/
+}

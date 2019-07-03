@@ -41,11 +41,18 @@ function main() {
 
         var game = new Game(canvas);
         
-       //game.gameOverCallback(createGameOverScreen);
+       game.gameOverCallback(createGameOverScreen);
         
        game.startGame();
         
-       //addEventListener('mousemove', canvas);
+       function checkCoordinates(event) {
+           console.log(event)
+        var x = event.offsetX;
+        var y = event.offsetY;
+        game.checkShot(x,y);
+        }
+
+       canvas.addEventListener('click', checkCoordinates);
 
         
 
