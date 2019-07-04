@@ -20,20 +20,19 @@ html {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 147%;
-    background-image: 'images/pixel-background.png';
-    
-    
+    background-color: white;
+    background-image: url('images/pixel-background.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
    
   }
 
   
-  h1 {
-    text-align: center;
-  }
+  /* h1 {}
   
   h2 {}
   
-  h3 {}
+  h3 {} */
   
   p {
     margin: 0;
@@ -45,12 +44,12 @@ html {
   }
 
   canvas {
-    border: 1px solid black;
+    border: 10px solid black;
     /*background-image: url('images/20451.png');
     background-position: bottom left;*/
     background-color: rgb(22, 132, 223);
     cursor: url('images/mirilla.cur') 60 60, auto;
-    margin: 10% 30% 10% 30%;
+    margin-left: 30%;
   }
   
   
@@ -72,13 +71,11 @@ html {
     margin-bottom: 60px;
   }
   
-  /* #gameSection {
-   
-
-  } */
-
   .container {
     margin: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-end;
   }
   
   .section {
@@ -87,10 +84,16 @@ html {
   }
   
   .StartSection {
-    border: 1px solid black;
-    height: 900px 75vh;
-    margin-left: 50%;
-    background-image: 'images/logohunt.jpg'
+    margin-left: 30%;
+    background-color: black;
+    width: 1000px;
+    margin-left: 30%;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+  }
+  .StartElement {
+    justify-content: center;
   }
 
   .gameSection {
@@ -101,6 +104,7 @@ html {
 
   .topGame {
     border: 1px solid black;
+    width: 1200px;
   }
 
   @media (min-width: 768px) {
@@ -118,11 +122,14 @@ html {
   
   .button {
     width: 100%;
-    background-color: blue;
-    color: #fff;
+    background-color: lightblue;
+    color: black;
     border: 1px solid #fff;
     width: 300px;
-    
+    border-radius: 50px;
+    height: 50px;
+    font-size: 20px;
+
   }
   
   .button-alt {

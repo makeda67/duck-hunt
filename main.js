@@ -15,8 +15,10 @@ function main() {
         gameSong.play();
         var splashScreen = buildDom(`
             <section class="StartSection">
-                <h1>Shoot the ShitHead</h1>
+            <flexbox class="StartElement">
+                <img src="images/logohunt.jpg" alt="Duck Hunt Logo" width="1000" height="500">
                 <button class="button">Start</button>
+            </flexbox>
             </section>
         `);
         var startButton = splashScreen.querySelector('button');
@@ -50,12 +52,12 @@ function main() {
         
         var gameScreen = buildDom(`
         <section id="gameSection">
-        <div class="topGame">
+        <div class="container">
         <p>Score: <span></span></p>
-        <p>Lives: <span id="lives"></span></p>
+        <p>Bullets: <span id="lives"></span></p>
         </div>
-            <canvas width="900" height="400"></canvas>
-        <div class="bottomGame">
+            <canvas width="1200" height="600"></canvas>
+        <flexbox class="bottomGame"></flexbox>
         </section>
         `);
 

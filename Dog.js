@@ -15,13 +15,13 @@ function Dog(canvas) {
 }
 
 Dog.prototype.move = function() {
-    if(this.y >= this.canvas.height - 150 && this.upMove === true) {
+    if(this.y >= this.canvas.height - 180 && this.upMove === true) {
       this.y = this.y + this.direction * this.velocity;
     } else {
       this.y = this.y +1 * this.velocity;
       this.upMove = false;
-      if(this.y > this.canvas.height - 100){
-        this.y = this.canvas.height - 100
+      if(this.y > this.canvas.height - 160){
+        this.y = this.canvas.height - 160
         this.upMove = true
       }
     }
