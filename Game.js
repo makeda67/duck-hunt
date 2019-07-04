@@ -10,11 +10,15 @@ function Game(canvas) {
   this.coordinatesMouse = null;
   this.level = 1;
   this.levelScore = 0;
+  this.floor = null;
+  this.doggo = null;
 }
 
 Game.prototype.startGame = function() {
 
-  this.player = new Player(this.canvas)
+  this.player = new Player(this.canvas);
+  this.floor = new Grass(this.canvas);
+  this.doggo = new Dog(this.canvas);
   var loop = () => {
       this.contDucks ++;
     if (this.contDucks > 60) {
@@ -49,11 +53,12 @@ Game.prototype.startGame = function() {
   loop();
 };
 
-Game.prototype.update = function() {
-    this.enemies.forEach(function(Duck) {
+Game.prototype.update = function() {    
+  this.enemies.forEach(function(Duck) {
 
         Duck.move();
     })
+    this.doggo.move();
 }
  
 Game.prototype.clear = function() {
@@ -64,6 +69,9 @@ Game.prototype.draw = function() {
     this.enemies.forEach(function(Duck) {
         Duck.draw();
     })
+    this.doggo.draw();
+    this.floor.draw();
+    
 }
 
 Game.prototype.checkShot = function(mouseX, mouseY) {
