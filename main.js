@@ -57,7 +57,17 @@ function main() {
         <p>Bullets: <span id="lives"></span></p>
         </div>
             <canvas width="1200" height="600"></canvas>
-        <flexbox class="bottomGame"></flexbox>
+        <flexbox class="bottomGame">
+        <h2>HOW TO PLAY<h2>
+        <h3>Aim and Shoot</h3>
+        <p>Just point on those ducks and click 'em!!! </p>
+
+        <h2>HOW TO LOSE</h2>
+        <p>Fail 5 shoots and you're out!!! Oh, wait, also your score will be reduced -300 points.</p>
+
+        <h2>OBJECTIVE OF THE GAME</h2>
+        <p>Try to kill the most number of ducks with 5 bullets (100 points for each duck and you won't waste bullets if you hit them).</p>
+        </flexbox>
         </section>
         `);
 

@@ -76,6 +76,7 @@ html {
     display: flex;
     justify-content: space-between;
     align-content: flex-end;
+    color: white;
   }
   
   .section {
@@ -87,10 +88,10 @@ html {
     margin-left: 30%;
     background-color: black;
     width: 1000px;
-    margin-left: 30%;
+    margin-left: 40%;
     padding-right: 20px;
     padding-bottom: 20px;
-    margin-top: 50px;
+    margin-top: 20%;
   }
   .StartElement {
     justify-content: center;
@@ -100,11 +101,17 @@ html {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 30%;
   }
 
   .topGame {
     border: 1px solid black;
     width: 1200px;
+    color: white;
+  }
+
+  .bottomGame {
+    color: white;
   }
 
   @media (min-width: 768px) {
