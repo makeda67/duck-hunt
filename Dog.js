@@ -15,41 +15,17 @@ function Dog(canvas) {
 }
 
 Dog.prototype.move = function() {
-//this.y = this.y + this.direction * this.velocity;
-
-  if(this.y >= this.canvas.height - 150 && this.upMove === true) {
-    this.y = this.y + this.direction * this.velocity;
-      } else {
-    this.y = this.y +1 * this.velocity;
-    console.log('going down')
-        if(this.y > this.canvas.height - 100){
-            console.log('going down')
-            this.y = this.y + this.direction * this.velocity;
-        }else if(this.y >= this.canvas.height - 100) {
-            this.y = this.y + this.direction * this.velocity;
-        }
-    this.upMove = false;
-
-
+    if(this.y >= this.canvas.height - 150 && this.upMove === true) {
+      this.y = this.y + this.direction * this.velocity;
+    } else {
+      this.y = this.y +1 * this.velocity;
+      this.upMove = false;
+      if(this.y > this.canvas.height - 100){
+        this.y = this.canvas.height - 100
+        this.upMove = true
+      }
+    }
   }
-
-//   for(var i = 0; i < 4; i++) {
-//     if(this.y >= this.canvas.height - 50) {
-//         this.y = this.y + this.direction * this.velocity;
-        
-//         console.log('Up');
-//       } else if (this.y <= this.canvas.height - 50){
-//         this.y = this.y + this.direction * this.velocity;
-//         console.log('Down');
-//         console.log(this.direction);
-//         this.upMove = false;
-//       }
-//   }
-
-//   setInterval(function(){
-//     this.y = this.y - this.direction * this.velocity;
-//   })
-}
 Dog.prototype.draw = function() {
         // this.ctx.fillStyle = this.color;
         // this.ctx.fillRect(this.x, this.y, this.width, this.height);

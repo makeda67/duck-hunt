@@ -20,6 +20,7 @@ html {
     font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 147%;
+    background-image: 'images/pixel-background.png';
     
     
    
@@ -39,8 +40,8 @@ html {
   }
   
   main {
-        width: 100vh;
-        height: 100vh;
+    width: 100vh;
+    height: 100vh;
   }
 
   canvas {

@@ -85,7 +85,7 @@ Game.prototype.checkShot = function(mouseX, mouseY) {
    
     
     if(leftCheck && rightCheck && topCheck && bottomCheck) {
-      //setTimeout(function(){document.body.style.color="white"}, 300);
+      
       this.enemies.splice(index, 1);
       this.player.score += 100;
       this.levelScore + 100;
@@ -94,7 +94,7 @@ Game.prototype.checkShot = function(mouseX, mouseY) {
         this.levelScore = 0;
       }
       var score = document.querySelector('span');
-       
+      
       
       score.innerText = this.player.score;  
       

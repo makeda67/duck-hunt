@@ -4,7 +4,7 @@ function Duck(canvas, randomY, side, level) {
   this.canvas = canvas;
   this.ctx = this.canvas.getContext("2d");
   this.y = randomY - 200;
-  this.velocity = 3;
+  this.velocity = 5;
   this.color = "red";
   this.width = 60;
   this.height = 60;
