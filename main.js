@@ -11,16 +11,18 @@ function main() {
     };
     
     function createSplashScreen () {
-        // var audio = new Audio('sound/David Civera - Que La Detengan.mp3');
-        // audio.play();
+        var gameSong = new Audio('sound/duck-hunt-music-title-theme.mp3');
+        gameSong.play();
         var splashScreen = buildDom(`
-            <section>
+            <section class="StartSection">
                 <h1>Shoot the ShitHead</h1>
-                <button>Start</button>
+                <button class="button">Start</button>
             </section>
         `);
         var startButton = splashScreen.querySelector('button');
-        startButton.addEventListener('click', createGameScreen);
+        startButton.addEventListener('click', function() {
+            createGameScreen(gameSong)
+        });
         
         
     };
@@ -37,17 +39,23 @@ function main() {
         returnButton.addEventListener('clicker', createSplashScreen);
     }
 */
-    function createGameScreen () {
-        // this.audio.pause();
-        // this.audio.currentTime = 0;
+    function createGameScreen (gameSong) {
+        gameSong.pause();
+        gameSong.currentTime = 0;
+        gameSong = new Audio('sound/Duck Hunt Remix Collab 01.mp3');
+        gameSong.play();
         
-        // var audio = new Audio('sound/David Civera - Que La Detengan.mp3');
-        // audio.play()
+        // var gameSong = new Audio('sound/David Civera - Que La Detengan.mp3');
+        // this.gameSong.play()
         
         var gameScreen = buildDom(`
-        <section>
+        <section id="gameSection">
+        <div class="topGame">
         <p>Score: <span></span></p>
+        <p>Lives: <span id="lives"></span></p>
+        </div>
             <canvas width="900" height="400"></canvas>
+        <div class="bottomGame">
         </section>
         `);
 
@@ -55,7 +63,9 @@ function main() {
 
         var game = new Game(canvas);
         
-       game.gameOverCallback(createGameOverScreen);
+       game.gameOverCallback(function() {
+           createGameOverScreen(gameSong);
+       });
         
        game.startGame();
         
@@ -72,7 +82,12 @@ function main() {
     };
     
     
-    function createGameOverScreen () {
+    function createGameOverScreen (gameSong) {
+        console.log(gameSong)
+        gameSong.pause();
+        gameSong.currentTime = 0;
+        gameSong = new Audio('sound/Game over.mp3');
+        gameSong.play();
         var gameOverScreen = buildDom(`
         <section>
         <h1>Game Over</h1>

@@ -1,6 +1,6 @@
 'use strict';
 
-function Duck(canvas, randomY, side) {
+function Duck(canvas, randomY, side, level) {
   this.canvas = canvas;
   this.ctx = this.canvas.getContext("2d");
   this.y = randomY - 200;
@@ -8,6 +8,7 @@ function Duck(canvas, randomY, side) {
   this.color = "red";
   this.width = 60;
   this.height = 60;
+  this.level = level;
   this.img = new Image();
   if (side === "left") {
     this.direction = 1;
@@ -21,7 +22,7 @@ function Duck(canvas, randomY, side) {
 }
 
 Duck.prototype.move = function() {
-  this.x = this.x + this.direction * this.velocity;
+  this.x = this.x + this.direction * (this.velocity + this.level);
 };
 
 Duck.prototype.draw = function() {

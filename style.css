@@ -21,16 +21,19 @@ html {
     font-size: 16px;
     line-height: 147%;
     
+    
    
   }
 
   
-  /*h1 {}
+  h1 {
+    text-align: center;
+  }
   
   h2 {}
   
   h3 {}
-  */
+  
   p {
     margin: 0;
   }
@@ -45,7 +48,7 @@ html {
     background-image: url('images/20451.png');
     background-position: bottom left;
     cursor: url('images/mirilla.cur') 60 60, auto;
-    margin: 80px 80px;
+    margin: 10% 30% 10% 30%;
     background-color: white;
   }
   
@@ -68,6 +71,11 @@ html {
     margin-bottom: 60px;
   }
   
+  /* #gameSection {
+   
+
+  } */
+
   .container {
     margin: 0 20px;
   }
@@ -77,12 +85,29 @@ html {
     padding-top: 20px;
   }
   
+  .StartSection {
+    border: 1px solid black;
+    height: 900px 75vh;
+    margin-left: 50%;
+  }
+
+  .gameSection {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .topGame {
+    border: 1px solid black;
+  }
+
   @media (min-width: 768px) {
     .container {
       max-width: 728px;
       margin: 0 auto;
     }
   }
+
   
   
   
@@ -93,7 +118,9 @@ html {
     width: 100%;
     background-color: blue;
     color: #fff;
-    border: 1px solid #fff
+    border: 1px solid #fff;
+    width: 300px;
+    
   }
   
   .button-alt {
