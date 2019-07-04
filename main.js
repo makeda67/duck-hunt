@@ -41,7 +41,7 @@ function main() {
 */
     function createGameScreen (gameSong) {
         gameSong.pause();
-        gameSong.currentTime = 0;
+        // gameSong.currentTime = 0;
         gameSong = new Audio('sound/Duck Hunt Remix Collab 01.mp3');
         gameSong.play();
         
@@ -95,7 +95,7 @@ function main() {
         </section>
         `);
         var buttonRestart = gameOverScreen.querySelector('button');
-        buttonRestart.addEventListener('click', createGameScreen);
+        buttonRestart.addEventListener('click', function(){ createGameScreen(gameSong)});
     };
     
     createSplashScreen();

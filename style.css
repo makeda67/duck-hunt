@@ -50,7 +50,6 @@ html {
     background-color: rgb(22, 132, 223);
     cursor: url('images/mirilla.cur') 60 60, auto;
     margin: 10% 30% 10% 30%;
-    background-color: white;
   }
   
   
@@ -90,6 +89,7 @@ html {
     border: 1px solid black;
     height: 900px 75vh;
     margin-left: 50%;
+    background-image: 'images/logohunt.jpg'
   }
 
   .gameSection {

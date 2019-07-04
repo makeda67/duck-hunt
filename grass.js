@@ -6,7 +6,7 @@ function Grass(canvas) {
     this.velocity = 0;
     this.color = "red";
     this.width = canvas.width;
-    this.height = 400;
+    this.height = 350;
     this.y = canvas.height + (canvas.height/2.8) - this.height;
     this.x = 0;
     this.img = new Image();

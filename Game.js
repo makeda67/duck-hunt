@@ -94,10 +94,10 @@ Game.prototype.checkShot = function(mouseX, mouseY) {
         this.levelScore = 0;
       }
       var score = document.querySelector('span');
-      var lives = document.querySelector('#lives'); 
+       
       
       score.innerText = this.player.score;  
-      lives.innerText = this.player.lives;
+      
       isCollision = true;
     }
     
@@ -105,7 +105,9 @@ Game.prototype.checkShot = function(mouseX, mouseY) {
   if(!isCollision){
     this.player.lives--;
     this.player.score -= 300;
-    console.log(`Fallado, vidas restantes ${this.player.lives}`)
+    console.log(`Fallado, vidas restantes ${this.player.lives}`);
+    var lives = document.querySelector('#lives');
+    lives.innerText = this.player.lives;
     if(this.player.lives === 0) {
       this.isGameOver = true; 
     }
