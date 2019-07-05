@@ -12,6 +12,7 @@ function Game(canvas) {
   this.levelScore = 0;
   this.floor = null;
   this.doggo = null;
+  this.tempo = 0;
 }
 
 Game.prototype.startGame = function() {
@@ -59,6 +60,7 @@ Game.prototype.update = function() {
         Duck.move();
     })
     this.doggo.move();
+    this.tempo++;
 }
  
 Game.prototype.clear = function() {
@@ -66,8 +68,8 @@ Game.prototype.clear = function() {
 }
 
 Game.prototype.draw = function() {
-    this.enemies.forEach(function(Duck) {
-        Duck.draw();
+    this.enemies.forEach((Duck) =>{
+        Duck.draw(this.tempo);
     })
     this.doggo.draw();
     this.floor.draw();
@@ -85,7 +87,8 @@ Game.prototype.checkShot = function(mouseX, mouseY) {
    
     
     if(leftCheck && rightCheck && topCheck && bottomCheck) {
-      
+      var gameSong = new Audio('sound/quack.mp3');
+      gameSong.play();
       this.enemies.splice(index, 1);
       this.player.score += 100;
       this.levelScore + 100;
@@ -94,9 +97,13 @@ Game.prototype.checkShot = function(mouseX, mouseY) {
         this.levelScore = 0;
       }
       var score = document.querySelector('span');
-      
-      
       score.innerText = this.player.score;  
+      var shadow = document.querySelector('canvas');
+      shadow.classList.add('shadow');  
+      setTimeout( function() {
+        shadow.classList.remove('shadow');
+      }, 300);
+
       
       isCollision = true;
     }
@@ -115,6 +122,17 @@ Game.prototype.checkShot = function(mouseX, mouseY) {
   
 }
 
+// Game.prototype.flash = function() {
+//   let showFlash = true;
+//   if(showFlash) {
+//     this.ctx.drawImage(this.img,this.x, this.y, this.width, this.height);
+//   }
+//   let isFlash = setInterval(() => {
+//     showFlash = false;
+//   }, 500);
+
+
+// }
 
 Game.prototype.gameOverCallback = function(callback) {
     this.onGameOver = callback;

@@ -28,22 +28,10 @@ function main() {
         
         
     };
-/*
-    function createInstructionsScreen () {
-        var createInstructionsScreen= buildDom(`
-        <section>
-            <h1>How to play </h1>
-            <p>something around here</p>
-            <button>Return</button>
-        </section>
-        `);
-        var returnButton = createInstructionsScreen.querySelector('button');
-        returnButton.addEventListener('clicker', createSplashScreen);
-    }
-*/
+
     function createGameScreen (gameSong) {
         gameSong.pause();
-        // gameSong.currentTime = 0;
+        gameSong.currentTime = 0;
         gameSong = new Audio('sound/Duck Hunt Remix Collab 01.mp3');
         gameSong.play();
         
@@ -56,7 +44,7 @@ function main() {
         <p>Score: <span></span></p>
         <p>Bullets: <span id="lives"></span></p>
         </div>
-            <canvas width="1200" height="600"></canvas>
+        <canvas width="1200" height="600"></canvas>
         <flexbox class="bottomGame">
         <h2>HOW TO PLAY<h2>
         <h3>Aim and Shoot</h3>
@@ -101,9 +89,11 @@ function main() {
         gameSong = new Audio('sound/Game over.mp3');
         gameSong.play();
         var gameOverScreen = buildDom(`
-        <section>
+        <section id="MIERDASECA">
+        <div class="GameOverContent">
         <h1>Game Over</h1>
         <button>Restart</button>
+        </div>
         </section>
         `);
         var buttonRestart = gameOverScreen.querySelector('button');

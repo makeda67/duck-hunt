@@ -15,8 +15,6 @@ function Grass(canvas) {
 
 
 Grass.prototype.draw = function() {
-        // this.ctx.fillStyle = this.color;
-        // this.ctx.fillRect(this.x, this.y, this.width, this.height);
-        var ctx = this.ctx;
-        ctx.drawImage(this.img,this.x, this.y, this.width, this.height);
+    var ctx = this.ctx;
+    ctx.drawImage(this.img,this.x, this.y, this.width, this.height);
 }

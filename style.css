@@ -23,7 +23,7 @@ html {
     background-color: white;
     background-image: url('images/pixel-background.png');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
    
   }
 
@@ -51,6 +51,30 @@ html {
     cursor: url('images/mirilla.cur') 60 60, auto;
     margin-left: 30%;
   }
+
+  .shadow{
+    animation-duration: 300ms;
+    animation-name: shadow-effect;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes shadow-effect {
+    from {
+      border: 10px solid white;
+      -webkit-box-shadow: 0px 0px 0px 0px rgba(255,255,255,1);
+      -moz-box-shadow: 0px 0px 0px 0px rgba(255,255,255,1);
+      box-shadow: 0px 0px 0px 0px rgba(255,255,255,1);
+    }
+  
+    to {
+      border: 10px solid black;
+      -webkit-box-shadow: 0px 0px 20px 30px rgba(255,255,255,0);
+      -moz-box-shadow: 0px 0px 20px 30px rgba(255,255,255,0);
+      box-shadow: 0px 0px 20px 30px rgba(255,255,255,0);
+    }
+  }
+
+
   
   
   /* ---- layout ---- */
@@ -71,6 +95,7 @@ html {
     margin-bottom: 60px;
   }
   
+
   .container {
     margin: 0 20px;
     display: flex;
@@ -92,9 +117,10 @@ html {
     padding-right: 20px;
     padding-bottom: 20px;
     margin-top: 20%;
+    display: block;
   }
   .StartElement {
-    justify-content: center;
+    
   }
 
   .gameSection {
@@ -113,6 +139,28 @@ html {
   .bottomGame {
     color: white;
   }
+
+  .GameOverContent {
+    display: flex;
+    height: 400px;
+  }
+  .GameOverContent button {
+    width: 100px;
+    height: 40px;
+    margin: auto;
+    background-color: lightblue;
+    color: black;
+  }
+
+  /* .GameOverContent {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+  }
+  .GameOverContent button {
+    width: 100px;
+  } */
 
   @media (min-width: 768px) {
     .container {
