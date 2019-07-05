@@ -89,7 +89,12 @@ Game.prototype.checkShot = function(mouseX, mouseY) {
     if(leftCheck && rightCheck && topCheck && bottomCheck) {
       var gameSong = new Audio('sound/quack.mp3');
       gameSong.play();
-      this.enemies.splice(index, 1);
+
+      enemy.isShot = true;
+      setTimeout(() => {
+        
+        ()=>{this.enemies.splice(index, 1)};
+      }, 1000);
       this.player.score += 100;
       this.levelScore + 100;
       if(this.levelScore > 700) {
@@ -106,6 +111,7 @@ Game.prototype.checkShot = function(mouseX, mouseY) {
 
       
       isCollision = true;
+      enemy.isShot = true;
     }
     
   })
